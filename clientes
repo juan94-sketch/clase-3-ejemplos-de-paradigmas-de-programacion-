@@ -1,0 +1,48 @@
+# Base de datos inicial de clientes (ejemplo)
+clientes_db = [
+    {"nombre": "Ana Pérez", "edad": 28, "ciudad": "Caracas"},
+    {"nombre": "Carlos Gómez", "edad": 34, "ciudad": "Valencia"},
+    {"nombre": "María Rodríguez", "edad": 22, "ciudad": "Maracay"}
+]
+
+# 1. Añadir 3 contactos nuevos a clientes_db
+nuevos_clientes = [
+    {"nombre": "José Silva", "edad": 41, "ciudad": "Caracas"},
+    {"nombre": "Lucía Mendoza", "edad": 29, "ciudad": "Barquisimeto"},
+    {"nombre": "Andrés Blanco", "edad": 35, "ciudad": "Valencia"}
+]
+
+clientes_db.extend(nuevos_clientes)
+
+
+# 2. Función para calcular el promedio de edad
+def promedio_edad(lista):
+    if not lista:
+        return 0
+    suma_edades = sum(cliente["edad"] for cliente in lista)
+    return suma_edades / len(lista)
+
+
+# 3. Función para filtrar contactos por ciudad
+def filtrar_por_ciudad(lista, ciudad):
+    # Compara ignorando mayúsculas/minúsculas para mayor precisión
+    return [
+        cliente
+        for cliente in lista
+        if cliente["ciudad"].strip().lower() == ciudad.strip().lower()
+    ]
+
+
+# --- Ejemplos de uso ---
+print(f"Total de clientes en la base de datos: {len(clientes_db)}")
+
+# Calcular promedio de edad
+media = promedio_edad(clientes_db)
+print(f"\nLa edad media de los contactos es: {media:.2f} años")
+
+# Filtrar por ciudad (ejemplo: "Caracas"  "Barquisimeto" "Valencia" "Maracay")
+ciudad_buscada = "Caracas" "Barquisimeto" "Valencia""Maracay"
+filtrados = filtrar_por_ciudad(clientes_db, ciudad_buscada)
+print(f"\nContactos en {ciudad_buscada}:")
+for c in filtrados:
+    print(f"- {c['nombre']} ({c['edad']} años)")
