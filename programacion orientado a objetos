@@ -1,0 +1,23 @@
+
+
+   #Ejemplo de POO: Modelar un coche
+
+
+class Coche:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+        self.encendido = False
+
+    def encender(self):
+        self.encendido = True
+        print(f"El {self.marca} {self.modelo} está encendido.")
+
+    def apagar(self):
+        self.encendido = False
+        print(f"El {self.marca} {self.modelo} está apagado.")
+
+
+# Creamos un objeto (instancia) de la clase coche
+mi_coche = Coche("Toyota", "Corolla")
+mi_coche.encender()
